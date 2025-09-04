@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/css/styles.css" rel="stylesheet">
+    <link rel="shortcut icon" sizes="16x16 32x32 96x96" href="https://www.brotlib.org/favicon.ico">
+    <title>BROTlib</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            BROTlib
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                {% assign url = page.url|remove:'index.html' %}
+                {% for link in site.navigation %}
+                <li class="nav-item">
+                    <a class="nav-link {% if url == link.url %}active{% endif %}" aria-current="page"
+                       href="{{ link.url }}" title="{{ link.title }}">{{link.text}}</a>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-sm" style="margin-top: 30px;">
+    {{ content }}
+</div>
+
+<script src="/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
